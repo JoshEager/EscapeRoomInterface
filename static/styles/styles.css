@@ -1,0 +1,45 @@
+html {
+    min-height: 100vh;
+    min-width: 100%;
+} 
+
+body {
+    background: url('/static/media/stars.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#pre-content {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 18fr 1fr;
+}
+
+#pre-content-wrapper {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+    min-height: 90vh;
+    min-width: 100%;
+    background-color: rgb(114, 114, 114);
+    text-align: center;
+    border-radius: 30px;
+    
+    font-size: 1.25rem;
+
+}
+
+#pre-content-wrapper h1, p {
+    margin: 5%;
+}
+
+@media (min-width: 1000px) {
+    #pre-content-wrapper {
+        font-size: 2rem;
+    }
+}
+
+video {
+    max-width: 100%;   
+}
