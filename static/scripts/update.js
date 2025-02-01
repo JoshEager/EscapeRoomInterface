@@ -1,7 +1,22 @@
 // All this script needs to do is see if the contents when we refresh have changed
-// If they have, reload the page.
+// If they have, insert the new content. 
 
 const CHECKINTERVAL = 2000
+
+async function reloadScripts() {
+    const scripts = document.querySelectorAll("script");
+    for (const oldScript of scripts) {
+        const newScript = document.createElement("script");
+        if (oldScript.src) {
+            newScript.src = oldScript.src;
+            newScript.defer = oldScript.defer;
+            newScript.async = oldScript.async;
+        } else {
+            newScript.textContent = oldScript.textContent;
+        }
+        oldScript.replaceWith(newScript);
+    }
+}
 
 async function updatePage() {
     let newPage;
@@ -18,7 +33,8 @@ async function updatePage() {
 
     if (document.documentElement.innerHTML != new_dom.documentElement.innerHTML) {
         console.log("Changes Detected!");
-        location.reload();
+        document.documentElement.innerHTML = new_dom.documentElement.innerHTML;
+        await reloadScripts();
     } else {
         return;
     }
