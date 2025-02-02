@@ -34,7 +34,7 @@ Using the query /set?state=lost will set the app to ist end state when the escap
 
 @app.route("/")
 def index():
-    return "For the escape room, go to /escaperoom, for the control room, goto /controlroom"
+    return render_template("index.html")
 
 @app.route("/escaperoom")
 def escapeRoom():

@@ -16,3 +16,8 @@ body {
 a:visited {
     color:cornflowerblue;
 }
+
+iframe {
+    width: 100%;
+    height: 1000px;
+}
