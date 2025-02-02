@@ -19,8 +19,14 @@ timerButton.addEventListener("click", async () => {
     console.log("Set state timer: ", status); 
 });
 
-endButton = document.getElementById("endButton");
-endButton.addEventListener("click", async () => {
-    let status = await ( await fetch("/set?state=end")).statusText;
+wonButton = document.getElementById("wonButton");
+wonButton.addEventListener("click", async () => {
+    let status = await ( await fetch("/set?state=won")).statusText;
+    console.log("Set state end: ", status);
+});
+
+lostButton = document.getElementById("lostButton");
+lostButton.addEventListener("click", async () => {
+    let status = await ( await fetch("/set?state=lost")).statusText;
     console.log("Set state end: ", status);
 });

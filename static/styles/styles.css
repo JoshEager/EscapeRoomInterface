@@ -1,12 +1,19 @@
 html {
     min-height: 100vh;
-    min-width: 100%;
+    min-width: 100vh;
 } 
 
 body {
     background: url('/static/media/stars.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+
+}
+
+video {
+    max-width: 100%;   
 }
 
 #pre-content {
@@ -15,6 +22,9 @@ body {
     grid-template-rows: 1fr 18fr 1fr;
     min-height: 100%;
     min-width: 100%;
+
+    min-height: 100vh;
+
 }
 
 #pre-content-wrapper {
@@ -23,7 +33,6 @@ body {
     grid-row-start: 2;
     grid-row-end: 2;
 
-    min-height: 90vh;
     min-width: 100%;
     background-color: rgb(114, 114, 114);
     text-align: center;
@@ -37,16 +46,60 @@ body {
     margin: 5%;
 }
 
+
+
+#start-content {
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 9fr 1fr;
+
+    min-height: 100vh;
+    min-width: 100vw;
+
+    text-align: center;
+}
+
+#metzgerVideoContainer {
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+#timer-content {
+    display: grid;
+    grid-template-rows: 1fr 1.75fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
+    min-height: 100vh;
+    min-width: 100vw;
+
+}
+
+#timer-content-wrapper {
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 2;
+
+    background-color: grey;
+    border-radius: 30px;
+
+}
+
+#time-remaining {
+    display: flex;
+
+    min-width: 100%;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 5rem;
+}
+
+
 @media (min-width: 1000px) {
     #pre-content-wrapper {
         font-size: 2rem;
     }
-}
-
-#start-content {
-    text-align: center;
-}
-
-video {
-    max-width: 100%;   
 }

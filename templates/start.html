@@ -1,13 +1,22 @@
 {% extends "layout.html" %}
 
+{% block head %}
+
+    <script src="/static/scripts/update.js"></script>
+    <script src="/static/scripts/start.js" defer></script>
+    <link rel="stylesheet" href="/static/styles/styles.css">
+
+{% endblock %}
+
+
 {% block body %}
 
-    <script src="/static/scripts/update.js" defer></script>
-    <link rel="stylesheet" href="/static/styles/styles.css">
     <div id="start-content">
-        <video autoplay controls id="metzgerVideo">
-            <source src="/static/media/metzger.mp4" type="video/mp4">
-        </video>
+        <div id="metzgerVideoContainer">
+            <video autoplay controls id="metzgerVideo">
+                <source src="/static/media/metzger.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
     
 {% endblock %}

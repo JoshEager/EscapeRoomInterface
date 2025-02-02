@@ -14,8 +14,10 @@ def setAppState(state: str) -> str:
             app_state = "start.html"
         case "timer":
             app_state = "timer.html"
-        case "end":
-            app_state = "end.html"
+        case "won":
+            app_state = "won.html"
+        case "lost":
+            app_state = "lost.html"
         case _:
             print("Invalid setAPI request!")
             return setAPI_helpMsg
@@ -25,7 +27,8 @@ setAPI_helpMsg = """
 Invalid query request!
 Using the query /set?state=pre will set the app to its pre state
 Using the query /set?state=start will set the app to its start state. 
-Using the query /set?state=end will set the app to its end state.
+Using the query /set?state=won will set the app to its end state when the escape room was won.
+Using the query /set?state=lost will set the app to ist end state when the escape room was lost. 
 """
 
 
