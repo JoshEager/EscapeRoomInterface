@@ -1,7 +1,7 @@
 // All this script needs to do is see if the body's first child has changed (aka, the server is serving a new page).
 // If it has changed, reload the page. 
 
-const CHECKINTERVAL = 2000
+const CHECKINTERVAL = 1000
 
 
 async function updatePage() {
