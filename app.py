@@ -1,9 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, session
 
+print("Make sure to set the password to something good!")
 
 app = Flask(__name__)
 app_state = "pre.html"
 
+auth_password = "Password123"
+
+app.secret_key = "supersecretkey"
 
 def setAppState(state: str) -> str:
     global app_state
@@ -49,8 +53,33 @@ def setAPI():
 
 @app.route("/controlroom")
 def controlRoom():
-    return render_template("controlroom.html")
-
+    try:
+        if session["password"] == auth_password:
+            return render_template("controlroom.html")
+        else: 
+            return redirect("/auth")
+    except:
+        print("No password found!")
+        return redirect("/auth")
+    
 @app.route("/controlroom/howto")
 def controlRoom_howTo():
     return render_template("controlroom_howto.html")
+
+@app.route("/auth", methods=["GET", "POST"])
+def auth():
+    if request.method == "GET":
+        return render_template("auth.html")
+    else: # Post
+        password = request.form.get("password")
+        if password:
+            print("Recieved a password!")
+            if password == auth_password:
+                session["password"]= password
+                return redirect("/controlroom")
+            else:
+                print("Password was bad!")
+                return redirect("/auth")
+        else: 
+            return redirect("/auth")
+        
