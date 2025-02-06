@@ -1,8 +1,17 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<style>
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 100vw;
+        min-height: 80vh;
+    }
+</style>
     <form method="POST">
-        <input type="text" placeholder="Password" name="password">
+        <input type="password" placeholder="Password" name="password" autofocus autocomplete="false">
         <input type="submit" value="login">
     </form>
 
